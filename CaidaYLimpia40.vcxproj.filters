@@ -18,5 +18,13 @@
     <ClCompile Include="src\CaidaYLimpia40.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\clases\Pantalla.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\clases\Pantalla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

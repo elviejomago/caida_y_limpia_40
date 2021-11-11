@@ -1,0 +1,45 @@
+# depslib dependency file v1.0
+1636609893 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\caidaylimpia40.cpp
+	<iostream>
+	<windows.h>
+	"wtypes.h"
+	"clases/Pantalla.h"
+	"clases/Bienvenida.h"
+
+1636522568 d:\desarrollo\workspaces\caida_y_limpia_40\src\clases\pantalla.h
+	<iostream>
+
+1636555737 d:\desarrollo\workspaces\caida_y_limpia_40\src\clases\bienvenida.h
+	<iostream>
+	"Pantalla.h"
+	"Jugador.h"
+
+1636522905 d:\desarrollo\workspaces\caida_y_limpia_40\src\clases\jugador.h
+	<iostream>
+
+1636522911 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\clases\jugador.cpp
+	"Jugador.h"
+
+1636435840 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\clases\pantalla.cpp
+	"Pantalla.h"
+
+1636607381 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\clases\bienvenida.cpp
+	<conio.h>
+	"Bienvenida.h"
+	"../funciones/Display.h"
+
+1636601961 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\funciones\posicion.cpp
+	<stdio.h>
+	<windows.h>
+	"Posicion.h"
+
+1636601661 d:\desarrollo\workspaces\caida_y_limpia_40\src\funciones\posicion.h
+
+1636607336 d:\desarrollo\workspaces\caida_y_limpia_40\src\funciones\display.h
+
+1636609544 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\funciones\display.cpp
+	<stdio.h>
+	<windows.h>
+	<cwchar>
+	"Display.h"
+

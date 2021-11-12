@@ -38,8 +38,8 @@
 		<Unit filename="src/clases/Jugador.h" />
 		<Unit filename="src/clases/Pantalla.cpp" />
 		<Unit filename="src/clases/Pantalla.h" />
-		<Unit filename="src/funciones/Posicion.cpp" />
-		<Unit filename="src/funciones/Posicion.h" />
+		<Unit filename="src/funciones/Display.cpp" />
+		<Unit filename="src/funciones/Display.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

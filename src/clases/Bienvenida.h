@@ -16,5 +16,7 @@ public:
 	Jugador getJugador();
 
 	void displayOnScreen();
+	void removeOnScreen();
+	void onEnter();
 };
 

@@ -20,19 +20,24 @@ Jugador Bienvenida::getJugador()
 }
 
 void Bienvenida::displayOnScreen(){
-    font::setColor(0x07);
-
-    font::setSize(18);
 	string _nombreJugador;
-    pos::gotoxy(70, 5);
-    font::setColor(0x0c);
-    cout << "BIENVENIDO" << endl;
-    font::setColor(0x07);
-    pos::gotoxy(50, 6);
-	cout << "Ingrese su nombre de Jugador y presione ENTER." << endl;
-	pos::gotoxy(50, 8);
-	cout << "__________" << endl;
-	pos::gotoxy(50, 8);
+    pos::gotoxy(70, 9);
+    text::printTextColorLN("BIENVENIDO", 0x0c);
+    text::printTextPositionLN("Ingrese su nombre de Jugador y presione ENTER.", 50, 10);
+    text::printTextPositionLN("__________", 50, 11);
+	pos::gotoxy(50, 11);
 	cin >> _nombreJugador;
 	setJugador(Jugador(_nombreJugador));
+    onEnter();
+
+}
+
+void Bienvenida::removeOnScreen()
+{
+    system("cls");
+}
+
+void Bienvenida::onEnter()
+{
+    removeOnScreen();
 }

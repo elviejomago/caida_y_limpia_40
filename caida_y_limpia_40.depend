@@ -80,3 +80,56 @@
 	"Header.h"
 	"../funciones/Display.h"
 
+1636688750 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\header.cpp
+	<iostream>
+	"Header.h"
+	"../functions/Constants.h"
+	"../functions/Display.h"
+
+1636681703 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\header.h
+
+1636685098 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\constants.h
+
+1636685330 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\display.h
+	<iostream>
+
+1636688287 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\player.cpp
+	"Player.h"
+
+1636688303 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\player.h
+	<iostream>
+
+1636688341 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\screen.cpp
+	"Screen.h"
+
+1636687736 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\screen.h
+	<iostream>
+
+1636689928 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\welcome.cpp
+	<conio.h>
+	"Welcome.h"
+	"Header.h"
+	"RoomGame.h"
+	"../functions/Display.h"
+
+1636688493 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\welcome.h
+	<iostream>
+	"Screen.h"
+	"Player.h"
+
+1636685306 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\display.cpp
+	<stdio.h>
+	<iostream>
+	<windows.h>
+	<cwchar>
+	"Display.h"
+	"Constants.h"
+
+1636689894 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.cpp
+	"RoomGame.h"
+	"Header.h"
+
+1636689443 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.h
+	<Screen.h>
+	"Player.h"
+

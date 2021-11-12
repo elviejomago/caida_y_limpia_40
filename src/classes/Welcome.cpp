@@ -1,9 +1,10 @@
 #include <conio.h>
 #include "Welcome.h"
 #include "Header.h"
+#include "RoomGame.h"
 #include "../functions/Display.h"
 
-Welcome::Welcome() :Screen("Welcome", "P002")
+Welcome::Welcome() :Screen("Welcome", "S002")
 {
 	Header header;
     displayOnScreen();
@@ -40,4 +41,5 @@ void Welcome::removeOnScreen()
 void Welcome::onEnter()
 {
     removeOnScreen();
+    RoomGame room;
 }

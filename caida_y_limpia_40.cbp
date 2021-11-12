@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="src/classes" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="src/classes" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,17 +34,23 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="src/CaidaYLimpia40.cpp" />
-		<Unit filename="src/clases/Header.cpp" />
-		<Unit filename="src/clases/Header.h" />
-		<Unit filename="src/clases/Player.cpp" />
-		<Unit filename="src/clases/Player.h" />
-		<Unit filename="src/clases/Screen.cpp" />
-		<Unit filename="src/clases/Screen.h" />
-		<Unit filename="src/clases/Welcome.cpp" />
-		<Unit filename="src/clases/Welcome.h" />
-		<Unit filename="src/funciones/Constants.h" />
-		<Unit filename="src/funciones/Display.cpp" />
-		<Unit filename="src/funciones/Display.h" />
+		<Unit filename="src/classes/Card.cpp" />
+		<Unit filename="src/classes/Card.h" />
+		<Unit filename="src/classes/Deck.h" />
+		<Unit filename="src/classes/Header.cpp" />
+		<Unit filename="src/classes/Header.h" />
+		<Unit filename="src/classes/Player.cpp" />
+		<Unit filename="src/classes/Player.h" />
+		<Unit filename="src/classes/RoomGame.cpp" />
+		<Unit filename="src/classes/RoomGame.h" />
+		<Unit filename="src/classes/Screen.cpp" />
+		<Unit filename="src/classes/Screen.h" />
+		<Unit filename="src/classes/Welcome.cpp" />
+		<Unit filename="src/classes/Welcome.h" />
+		<Unit filename="src/enums/TypeCard.h" />
+		<Unit filename="src/functions/Constants.h" />
+		<Unit filename="src/functions/Display.cpp" />
+		<Unit filename="src/functions/Display.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

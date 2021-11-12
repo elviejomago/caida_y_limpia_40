@@ -1,9 +1,11 @@
 #include <conio.h>
 #include "Bienvenida.h"
+#include "Header.h"
 #include "../funciones/Display.h"
 
 Bienvenida::Bienvenida() :Pantalla("Bienvenida", "P002")
 {
+	Header header;
     displayOnScreen();
 }
 

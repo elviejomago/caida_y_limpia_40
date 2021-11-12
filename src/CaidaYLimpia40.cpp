@@ -1,6 +1,6 @@
 #include <windows.h>
-#include "clases/Pantalla.h"
-#include "clases/Bienvenida.h"
+#include "clases/Screen.h"
+#include "clases/Welcome.h"
 #include "funciones/Display.h"
 
 #pragma comment(lib, "user32")
@@ -10,7 +10,7 @@ void initConfig();
 int main()
 {
     initConfig();
-    Bienvenida pBienvenida;
+    Welcome sWelcome;
 
     return 0;
 //    system("pause > 0");

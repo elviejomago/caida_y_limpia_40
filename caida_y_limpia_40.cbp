@@ -32,12 +32,15 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="src/CaidaYLimpia40.cpp" />
-		<Unit filename="src/clases/Bienvenida.cpp" />
-		<Unit filename="src/clases/Bienvenida.h" />
-		<Unit filename="src/clases/Jugador.cpp" />
-		<Unit filename="src/clases/Jugador.h" />
-		<Unit filename="src/clases/Pantalla.cpp" />
-		<Unit filename="src/clases/Pantalla.h" />
+		<Unit filename="src/clases/Header.cpp" />
+		<Unit filename="src/clases/Header.h" />
+		<Unit filename="src/clases/Player.cpp" />
+		<Unit filename="src/clases/Player.h" />
+		<Unit filename="src/clases/Screen.cpp" />
+		<Unit filename="src/clases/Screen.h" />
+		<Unit filename="src/clases/Welcome.cpp" />
+		<Unit filename="src/clases/Welcome.h" />
+		<Unit filename="src/funciones/Constants.h" />
 		<Unit filename="src/funciones/Display.cpp" />
 		<Unit filename="src/funciones/Display.h" />
 		<Extensions />

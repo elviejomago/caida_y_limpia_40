@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Header.h"
-#include "../funciones/Constants.h"
-#include "../funciones/Display.h"
+#include "../functions/Constants.h"
+#include "../functions/Display.h"
 
 Header::Header()
 {

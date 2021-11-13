@@ -3,14 +3,19 @@
 #include <iostream>
 #include "Card.h"
 
-using namespace std:
+using namespace std;
 
 class Deck {
 private:
-    vector<Card> cards(40);
+    Card cards[4][10];
+    char visibleCards[4][10];
+
+    void initCards();
+    void initVisibleCards();
 public:
 	Deck();
-	void dealCards();
+	char getVisibleCard(int _row, int _column);
+	void dealCards(int _round);
 	void shufflingCards();
 	void resetDeck();
 };

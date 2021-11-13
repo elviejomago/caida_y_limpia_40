@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1636687932 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\caidaylimpia40.cpp
+1636788706 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\caidaylimpia40.cpp
 	<windows.h>
-	"clases/Screen.h"
-	"clases/Welcome.h"
-	"funciones/Display.h"
+	"classes/Screen.h"
+	"classes/Welcome.h"
+	"functions/Display.h"
+	"constants/Constants.h"
 
 1636522568 d:\desarrollo\workspaces\caida_y_limpia_40\src\clases\pantalla.h
 	<iostream>
@@ -80,17 +81,18 @@
 	"Header.h"
 	"../funciones/Display.h"
 
-1636688750 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\header.cpp
+1636773689 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\header.cpp
 	<iostream>
 	"Header.h"
-	"../functions/Constants.h"
+	"../constants/Constants.h"
+	"../constants/Positions.h"
 	"../functions/Display.h"
 
 1636681703 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\header.h
 
 1636685098 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\constants.h
 
-1636685330 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\display.h
+1636786965 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\display.h
 	<iostream>
 
 1636688287 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\player.cpp
@@ -117,19 +119,50 @@
 	"Screen.h"
 	"Player.h"
 
-1636685306 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\display.cpp
+1636788524 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\display.cpp
 	<stdio.h>
 	<iostream>
 	<windows.h>
 	<cwchar>
 	"Display.h"
-	"Constants.h"
+	"../constants/Constants.h"
 
-1636689894 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.cpp
+1636789029 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.cpp
+	<iostream>
+	<sstream>
 	"RoomGame.h"
 	"Header.h"
+	"../functions/Display.h"
+	"../constants/Positions.h"
+	"../constants/Constants.h"
 
-1636689443 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.h
+1636787504 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.h
 	<Screen.h>
-	"Player.h"
+	"Deck.h"
+
+1636769474 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\card.cpp
+	<iostream>
+	<sstream>
+	"Card.h"
+
+1636767030 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\card.h
+	<iostream>
+
+1636691588 d:\desarrollo\workspaces\caida_y_limpia_40\src\enums\typecard.h
+
+1636774301 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\deck.cpp
+	<iostream>
+	"Deck.h"
+	"Card.h"
+	"../constants/TypeCard.h"
+
+1636774207 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\deck.h
+	<iostream>
+	"Card.h"
+
+1636788349 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\constants.h
+
+1636773305 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\typecard.h
+
+1636789362 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\positions.h
 

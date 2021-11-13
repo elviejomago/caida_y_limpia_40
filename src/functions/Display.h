@@ -23,6 +23,8 @@ void printTextColor(string _text, unsigned char _color);
 void printTextColorLN(string _text, unsigned char _color);
 void printTextPosition(string _text, int _x, int _y);
 void printTextPositionLN(string _text, int _x, int _y);
+void printTextColorPos(string _text, int _x, int _y, unsigned char _color);
+void printTextColorPosLN(string _text, int _x, int _y, unsigned char _color);
 }
 
 #endif // F_DISPLAY_H_INCLUDED

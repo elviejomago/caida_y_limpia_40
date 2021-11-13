@@ -1,18 +1,18 @@
 #pragma once
 
 #include <iostream>
-#include "../enums/TypeCard.h"
 
 using namespace std;
 
 class Card {
 private:
     int value;
-    TypeCard type;
+    char type;
     string label;
 public:
-	Card(int _value, TypeCard _type);
+    Card();
+	Card(int _value, char _type);
 	int getValue();
-	TypeCard getType();
+	char getType();
 	string getLabel();
 };

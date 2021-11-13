@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <cwchar>
 #include "Display.h"
-#include "Constants.h"
+#include "../constants/Constants.h"
 
 using namespace std;
 
@@ -46,14 +46,14 @@ void text::printTextColor(string _text, unsigned char _color)
 {
     font::setColor(_color);
     cout << _text;
-    font::setColor(Colors::DEFAULT);
+    font::setColor(Colors::WHITE);
 }
 
 void text::printTextColorLN(string _text, unsigned char _color)
 {
     font::setColor(_color);
     cout << _text << endl;
-    font::setColor(Colors::DEFAULT);
+    font::setColor(Colors::WHITE);
 }
 
 void text::printTextPosition(string _text, int _x, int _y)
@@ -66,4 +66,16 @@ void text::printTextPositionLN(string _text, int _x, int _y)
 {
     pos::gotoxy(_x, _y);
     cout << _text << endl;
+}
+
+void text::printTextColorPos(string _text, int _x, int _y, unsigned char _color)
+{
+    pos::gotoxy(_x, _y);
+    text::printTextColor(_text, _color);
+}
+
+void text::printTextColorPosLN(string _text, int _x, int _y, unsigned char _color)
+{
+    pos::gotoxy(_x, _y);
+    text::printTextColorLN(_text, _color);
 }

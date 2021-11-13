@@ -2,17 +2,18 @@
 #define CLASS_ROOMGAME_H
 
 #include <Screen.h>
-#include "Player.h"
+#include "Deck.h"
 
 
 class RoomGame : public Screen
 {
 private:
-    Player player;
-    Player player2;
-
+    Deck deck;
 public:
     RoomGame();
+    void drawDeckOnRoom();
+    void drawRealPlayerArea();
+    void drawSystemPlayerArea();
 };
 
 #endif // CLASS_ROOMGAME_H

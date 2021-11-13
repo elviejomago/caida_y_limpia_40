@@ -36,6 +36,7 @@
 		<Unit filename="src/CaidaYLimpia40.cpp" />
 		<Unit filename="src/classes/Card.cpp" />
 		<Unit filename="src/classes/Card.h" />
+		<Unit filename="src/classes/Deck.cpp" />
 		<Unit filename="src/classes/Deck.h" />
 		<Unit filename="src/classes/Header.cpp" />
 		<Unit filename="src/classes/Header.h" />
@@ -47,8 +48,9 @@
 		<Unit filename="src/classes/Screen.h" />
 		<Unit filename="src/classes/Welcome.cpp" />
 		<Unit filename="src/classes/Welcome.h" />
-		<Unit filename="src/enums/TypeCard.h" />
-		<Unit filename="src/functions/Constants.h" />
+		<Unit filename="src/constants/Constants.h" />
+		<Unit filename="src/constants/Positions.h" />
+		<Unit filename="src/constants/TypeCard.h" />
 		<Unit filename="src/functions/Display.cpp" />
 		<Unit filename="src/functions/Display.h" />
 		<Extensions />

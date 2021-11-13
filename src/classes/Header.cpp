@@ -1,10 +1,13 @@
 #include <iostream>
 #include "Header.h"
-#include "../functions/Constants.h"
+#include "../constants/Constants.h"
+#include "../constants/Positions.h"
 #include "../functions/Display.h"
+
 
 Header::Header()
 {
+    pos::gotoxy(P_HEADER::x, P_HEADER::y);
 	for (int i = 0; i < ScreenLines::COLUMNS; i++)
 	{
 		pos::gotoxy(i, 0); std::cout << "-" << std::endl;
@@ -20,5 +23,4 @@ Header::Header()
 		pos::gotoxy(i, 5); std::cout << "O" << std::endl;
 		pos::gotoxy(i, 6); std::cout << "-" << std::endl;
 	}
-
 }

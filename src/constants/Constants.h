@@ -10,7 +10,9 @@ namespace ScreenLines
 namespace Colors
 {
     const unsigned char DEFAULT = 0X07;
-    const unsigned char RED = 0X0c;
+    const unsigned char WHITE = 0X0F;
+    const unsigned char RED = 0X04;
+    const unsigned char GREEN = 0X02;
 };
 
 

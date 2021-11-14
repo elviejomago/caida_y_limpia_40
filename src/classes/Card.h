@@ -12,6 +12,7 @@ private:
 public:
     Card();
 	Card(int _value, char _type);
+	bool operator == (const Card& c) const { return value == c.value && type == c.type; }
 	int getValue();
 	char getType();
 	string getLabel();

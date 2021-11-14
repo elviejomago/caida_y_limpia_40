@@ -1,5 +1,7 @@
 #pragma once
-#include<iostream>
+#include <iostream>
+#include <list>
+#include "Card.h"
 
 using namespace std;
 
@@ -10,6 +12,8 @@ private:
 	int numGames;
 	int winGames;
 	int lostGames;
+	list<Card> winCards;
+	list<Card> inGameCards;
 public:
 	Player();
 	Player(string _name);
@@ -20,5 +24,8 @@ public:
 	int getWinGames();
 	void addLostGames();
 	int getLostGames();
+	void addWinCard(Card _card);
+	void setInGameCards(list<Card> _cards);
+	list<Card> getInGameCards();
 };
 

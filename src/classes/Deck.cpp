@@ -1,4 +1,5 @@
 #include <iostream>
+#include <list>
 #include "Deck.h"
 #include "Card.h"
 #include "../constants/TypeCard.h"
@@ -7,8 +8,19 @@ using namespace std;
 
 Deck::Deck()
 {
+    this->rounds = 0;
     initCards();
     initVisibleCards();
+}
+
+void Deck::addRounds()
+{
+    this->rounds++;
+}
+
+int Deck::getRounds()
+{
+    return this->rounds;
 }
 
 char Deck::getVisibleCard(int _row, int _column)
@@ -16,18 +28,27 @@ char Deck::getVisibleCard(int _row, int _column)
     return this->visibleCards[_row][_column];
 }
 
-void Deck::dealCards(int _round)
+list<Card> Deck::dealCards(int _round, bool _isFirstPlayer)
 {
-    for(int i = 0; i < 5; i++)
+    list<Card> responseCards;
+    int from, until;
+    if(_isFirstPlayer)
     {
-        this->visibleCards[_round][i] = StatusCard::IN_GAME;
+        from = 0;
+        until = 5;
     }
-
-    for(int i = 5; i < 10; i++)
+    else
     {
-        this->visibleCards[_round][i] = StatusCard::IN_GAME;
+        from = 5;
+        until = 10;
     }
+        for(int i = from; i < until; i++)
+        {
+            this->visibleCards[_round][i] = StatusCard::IN_GAME;
+            responseCards.push_front(this->cards[_round][i]);
+        }
 
+    return responseCards;
 }
 
 void Deck::initCards()

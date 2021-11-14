@@ -1,21 +1,33 @@
 #include <iostream>
+#include <list>
+#include <cstring>
 #include <sstream>
 #include "RoomGame.h"
 #include "Header.h"
 #include "../functions/Display.h"
 #include "../constants/Positions.h"
 #include "../constants/Constants.h"
+#include "../functions/List.h"
 
 using namespace std;
 
-RoomGame::RoomGame() :Screen("Room Game", "S003")
+RoomGame::RoomGame() :Screen("Room Game", "S003"){}
+
+RoomGame::RoomGame(Player _player) :Screen("Room Game", "S003")
 {
-    Header header;
-    Deck deck;
-    this->deck = deck;
-    drawDeckOnRoom();
-    drawRealPlayerArea();
-    drawSystemPlayerArea();
+    init(_player);
+    renderRoom();
+    startGame();
+}
+
+void RoomGame::init(Player _player)
+{
+    Header _header;
+    Deck _deck;
+    Player _systemPlayer;
+    this->deck = _deck;
+    this->realPlayer = _player;
+    this->systemPlayer = _systemPlayer;
 }
 
 void RoomGame::drawDeckOnRoom()
@@ -44,7 +56,7 @@ void RoomGame::drawRealPlayerArea()
 {
     int _x = P_REAL_PLAYER_AREA::x;
     int _y = P_REAL_PLAYER_AREA::y;
-    text::printTextColorPos("Player", _x, _y, Colors::GREEN);
+    text::printTextColorPos(this->realPlayer.getName(), _x, _y, Colors::GREEN);
     text::printTextColorPos("--------", _x, ++_y, Colors::GREEN);
     text::printTextColorPos("|      |", _x, ++_y, Colors::GREEN);
     text::printTextColorPos("|      |", _x, ++_y, Colors::GREEN);
@@ -52,6 +64,12 @@ void RoomGame::drawRealPlayerArea()
     text::printTextColorPos("|      |", _x, ++_y, Colors::GREEN);
     text::printTextColorPos("|      |", _x, ++_y, Colors::GREEN);
     text::printTextColorPos("--------", _x, ++_y, Colors::GREEN);
+
+    int _posCardX = P_REAL_PLAYER_AREA::x + 3;
+    int _posCardY = P_REAL_PLAYER_AREA::y + 1;
+	for (Card card : this->realPlayer.getInGameCards()) {
+        text::printTextColorPos(card.getLabel(), _posCardX, ++_posCardY, Colors::RED);
+	}
 }
 
 void RoomGame::drawSystemPlayerArea()
@@ -67,5 +85,57 @@ void RoomGame::drawSystemPlayerArea()
     text::printTextColorPos("|      |", _x, ++_y, Colors::WHITE);
     text::printTextColorPos("--------", _x, ++_y, Colors::WHITE);
 
+    int _posCardX = P_SYSTEM_PLAYER_AREA::x + 3;
+    int _posCardY = P_SYSTEM_PLAYER_AREA::y + 1;
+	for (Card card : this->systemPlayer.getInGameCards()) {
+        text::printTextColorPos(card.getLabel(), _posCardX, ++_posCardY, Colors::RED);
+	}
 }
 
+void RoomGame::startGame()
+{
+    string _startGame;
+    text::printTextColorPos("Presionar E para empezar el juego", 30, 15, Colors::RED);
+
+    bool endGame = false;
+    do
+    {
+        cin >> _startGame;
+        if(strcasecmp(_startGame.c_str(), "E") == 0)
+        {
+            list<Card>::iterator it;
+            giveCards();
+            string _selectCard;
+            while(true)
+            {
+                pos::gotoxy(P_REAL_PLAYER_AREA::x, P_REAL_PLAYER_AREA::y + 8);
+                cin >> _selectCard;
+
+                Card _cardSetected = _list::card::findByLabel(this->realPlayer.getInGameCards(), _selectCard);
+                if(_cardSetected.getValue() != -1)
+                {
+                    list<Card> _tCards = _list::card::removeByLabel(this->realPlayer.getInGameCards(), _selectCard);
+                    this->realPlayer.setInGameCards(_tCards);
+                    renderRoom();
+                }
+            }
+        }
+    } while (!endGame);
+}
+
+void RoomGame::giveCards()
+{
+    list<Card> realPlayerCards = this->deck.dealCards(this->deck.getRounds(), true);
+    this->realPlayer.setInGameCards(realPlayerCards);
+    list<Card> systemPlayerCards = this->deck.dealCards(this->deck.getRounds(), false);
+    this->systemPlayer.setInGameCards(systemPlayerCards);
+    renderRoom();
+    this->deck.addRounds();
+}
+
+void RoomGame::renderRoom()
+{
+    drawDeckOnRoom();
+    drawRealPlayerArea();
+    drawSystemPlayerArea();
+}

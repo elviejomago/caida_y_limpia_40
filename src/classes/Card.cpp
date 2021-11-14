@@ -4,7 +4,10 @@
 
 using namespace std;
 
-Card::Card() {}
+Card::Card()
+{
+    this->value = -1;
+}
 
 Card::Card(int _value, char _type)
 {

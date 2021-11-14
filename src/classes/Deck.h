@@ -1,12 +1,14 @@
 #pragma once
 
 #include <iostream>
+#include <list>
 #include "Card.h"
 
 using namespace std;
 
 class Deck {
 private:
+    int rounds;
     Card cards[4][10];
     char visibleCards[4][10];
 
@@ -14,8 +16,10 @@ private:
     void initVisibleCards();
 public:
 	Deck();
+	void addRounds();
+	int getRounds();
 	char getVisibleCard(int _row, int _column);
-	void dealCards(int _round);
+	list<Card> dealCards(int _round, bool _isFirstPlayer);
 	void shufflingCards();
 	void resetDeck();
 };

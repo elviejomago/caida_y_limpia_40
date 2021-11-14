@@ -53,6 +53,8 @@
 		<Unit filename="src/constants/TypeCard.h" />
 		<Unit filename="src/functions/Display.cpp" />
 		<Unit filename="src/functions/Display.h" />
+		<Unit filename="src/functions/List.cpp" />
+		<Unit filename="src/functions/List.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

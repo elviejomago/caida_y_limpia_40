@@ -1,4 +1,5 @@
 #include <conio.h>
+#include <iostream>
 #include "Welcome.h"
 #include "Header.h"
 #include "RoomGame.h"
@@ -41,5 +42,5 @@ void Welcome::removeOnScreen()
 void Welcome::onEnter()
 {
     removeOnScreen();
-    RoomGame room;
+    RoomGame room(getPlayer());
 }

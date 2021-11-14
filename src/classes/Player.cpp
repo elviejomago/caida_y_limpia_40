@@ -47,3 +47,12 @@ int Player::getLostGames()
 	return this->lostGames;
 }
 
+void Player::setInGameCards(list<Card> _cards)
+{
+    this->inGameCards = _cards;
+}
+
+list<Card> Player::getInGameCards()
+{
+    return this->inGameCards;
+}

@@ -13,7 +13,7 @@ namespace TypeCard
 namespace StatusCard
 {
     const char IN_GAME = 'o';
-    const char IN_DECK = '*';
+    const char IN_DECK = 'x';
 };
 
 #endif // ENUM_TYPECARD_H_INCLUDED

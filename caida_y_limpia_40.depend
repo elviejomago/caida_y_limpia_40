@@ -130,7 +130,7 @@
 	"Display.h"
 	"../constants/Constants.h"
 
-1636865027 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.cpp
+1637213072 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.cpp
 	<iostream>
 	<list>
 	<cstring>
@@ -157,12 +157,15 @@
 
 1636691588 d:\desarrollo\workspaces\caida_y_limpia_40\src\enums\typecard.h
 
-1636851092 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\deck.cpp
+1637214227 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\deck.cpp
 	<iostream>
 	<list>
+	<stdlib.h>
+	<time.h>
 	"Deck.h"
 	"Card.h"
 	"../constants/TypeCard.h"
+	"../functions/List.h"
 
 1636843393 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\deck.h
 	<iostream>
@@ -171,18 +174,18 @@
 
 1636788349 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\constants.h
 
-1636773305 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\typecard.h
+1636865363 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\typecard.h
 
 1636789362 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\positions.h
 
-1636864812 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\list.cpp
+1637212209 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\list.cpp
 	<iostream>
 	<cstring>
 	<list>
 	"List.h"
 	"Card.h"
 
-1636864795 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\list.h
+1637212159 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\list.h
 	<iostream>
 	<list>
 	"Card.h"

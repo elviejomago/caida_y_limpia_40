@@ -18,6 +18,20 @@ Card _list::card::findByLabel(list<Card> _list, string _label)
 	return emptyCard;
 }
 
+Card _list::card::findByIndex(list<Card> _list, int _index)
+{
+    Card emptyCard;
+    int i = 0;
+	for (Card _card : _list) {
+        if(i == _index)
+        {
+            return _card;
+        }
+        i++;
+	}
+	return emptyCard;
+}
+
 list<Card> _list::card::removeByLabel(list<Card> _list, string _label)
 {
 	Card card;

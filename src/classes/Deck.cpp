@@ -1,8 +1,11 @@
 #include <iostream>
 #include <list>
+#include<stdlib.h>
+#include<time.h>
 #include "Deck.h"
 #include "Card.h"
 #include "../constants/TypeCard.h"
+#include "../functions/List.h"
 
 using namespace std;
 
@@ -49,6 +52,40 @@ list<Card> Deck::dealCards(int _round, bool _isFirstPlayer)
         }
 
     return responseCards;
+}
+
+void Deck::shufflingCards()
+{
+    list<Card> _tempCards;
+    list<Card> _randomCards;
+    for(int i=0; i<4; i++)
+    {
+        for(int j=0; j<10; j++)
+        {
+            _tempCards.push_front(cards[i][j]);
+        }
+    }
+
+    do{
+        int randNumber;
+        srand(time(NULL));
+        randNumber = rand() % _tempCards.size();
+        Card _randCard = _list::card::findByIndex(_tempCards, randNumber);
+        _randomCards.push_back(_randCard);
+        _tempCards = _list::card::removeByLabel(_tempCards, _randCard.getLabel());
+    }while(_tempCards.size() != 0);
+
+    int row=0, col=0;
+	for (Card _card : _randomCards) {
+        if(col >= 0 && col <= 9){
+            this->cards[row][col] = _card;
+            col++;
+        } else {
+            this->cards[row+1][0] = _card;
+            col = 1;
+            row++;
+        }
+	}
 }
 
 void Deck::initCards()

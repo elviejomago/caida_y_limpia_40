@@ -66,11 +66,11 @@ void Deck::shufflingCards()
         }
     }
 
+    int _randNumber;
     do{
-        int randNumber;
         srand(time(NULL));
-        randNumber = rand() % _tempCards.size();
-        Card _randCard = _list::card::findByIndex(_tempCards, randNumber);
+        _randNumber = rand() % _tempCards.size();
+        Card _randCard = _list::card::findByIndex(_tempCards, _randNumber);
         _randomCards.push_back(_randCard);
         _tempCards = _list::card::removeByLabel(_tempCards, _randCard.getLabel());
     }while(_tempCards.size() != 0);

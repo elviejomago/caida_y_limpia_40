@@ -18,7 +18,7 @@ int main()
 
 void initConfig()
 {
-    ::SendMessage(::GetConsoleWindow(), WM_SYSKEYDOWN, VK_RETURN, 0x20000000);
+    //::SendMessage(::GetConsoleWindow(), WM_SYSKEYDOWN, VK_RETURN, 0x20000000);
     font::setSize(18);
     font::setColor(Colors::WHITE);
 }

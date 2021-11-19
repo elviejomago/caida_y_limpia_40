@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1636847115 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\caidaylimpia40.cpp
+1637294733 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\caidaylimpia40.cpp
 	<windows.h>
 	"classes/Screen.h"
 	"classes/Welcome.h"
@@ -130,7 +130,7 @@
 	"Display.h"
 	"../constants/Constants.h"
 
-1637213072 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.cpp
+1637295867 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.cpp
 	<iostream>
 	<list>
 	<cstring>
@@ -142,10 +142,12 @@
 	"../constants/Constants.h"
 	"../functions/List.h"
 
-1636864861 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.h
+1637296217 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.h
 	<Screen.h>
+	<list>
 	"Deck.h"
 	"Player.h"
+	"Card.h"
 
 1636863787 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\card.cpp
 	<iostream>
@@ -157,7 +159,7 @@
 
 1636691588 d:\desarrollo\workspaces\caida_y_limpia_40\src\enums\typecard.h
 
-1637214227 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\deck.cpp
+1637214516 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\deck.cpp
 	<iostream>
 	<list>
 	<stdlib.h>
@@ -176,7 +178,7 @@
 
 1636865363 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\typecard.h
 
-1636789362 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\positions.h
+1637295417 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\positions.h
 
 1637212209 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\list.cpp
 	<iostream>

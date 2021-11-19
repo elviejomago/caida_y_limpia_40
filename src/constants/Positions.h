@@ -9,19 +9,25 @@ namespace P_HEADER
 
 namespace P_DECK
 {
-    const int x = 30;
+    const int x = 50;
     const int y = 25;
 }
 
 namespace P_REAL_PLAYER_AREA
 {
-    const int x = 15;
+    const int x = 35;
     const int y = 10;
 }
 
 namespace P_SYSTEM_PLAYER_AREA
 {
-    const int x = 80;
+    const int x = 100;
+    const int y = 10;
+}
+
+namespace P_GAME_TABLE
+{
+    const int x = 50;
     const int y = 10;
 }
 

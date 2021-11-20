@@ -17,6 +17,7 @@ private:
 public:
 	Deck();
 	void addRounds();
+	void resetRounds();
 	int getRounds();
 	char getVisibleCard(int _row, int _column);
 	list<Card> dealCards(int _round, bool _isFirstPlayer);

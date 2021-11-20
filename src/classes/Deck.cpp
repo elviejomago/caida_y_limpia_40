@@ -12,13 +12,17 @@ using namespace std;
 Deck::Deck()
 {
     this->rounds = 0;
-    initCards();
-    initVisibleCards();
+    resetDeck();
 }
 
 void Deck::addRounds()
 {
     this->rounds++;
+}
+
+void Deck::resetRounds()
+{
+    this->rounds = 0;
 }
 
 int Deck::getRounds()
@@ -86,6 +90,12 @@ void Deck::shufflingCards()
             row++;
         }
 	}
+}
+
+void Deck::resetDeck()
+{
+    initCards();
+    initVisibleCards();
 }
 
 void Deck::initCards()

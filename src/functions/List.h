@@ -13,6 +13,7 @@ namespace _list
     {
         Card findByLabel(list<Card> _listCards, string _label);
         Card findByIndex(list<Card> _list, int _index);
+        Card findByValue(list<Card> _list, int _value);
         list<Card> removeByLabel(list<Card> _listCards, string _label);
     }
 }

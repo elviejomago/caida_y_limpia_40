@@ -32,6 +32,18 @@ Card _list::card::findByIndex(list<Card> _list, int _index)
 	return emptyCard;
 }
 
+Card _list::card::findByValue(list<Card> _list, int _value)
+{
+    Card emptyCard;
+	for (Card _card : _list) {
+        if(_value == _card.getValue())
+        {
+            return _card;
+        }
+	}
+	return emptyCard;
+}
+
 list<Card> _list::card::removeByLabel(list<Card> _list, string _label)
 {
 	Card card;

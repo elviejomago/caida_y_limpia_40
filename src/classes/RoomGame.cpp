@@ -112,8 +112,12 @@ void RoomGame::startGame()
     bool endGame = false;
     do
     {
-        this->deck.shufflingCards();
-        list<Card>::iterator it;
+        if(this->deck.getRounds() == 0 || this->deck.getRounds() == 4)
+        {
+            this->deck.resetRounds();
+            this->deck.resetDeck();
+            this->deck.shufflingCards();
+        }
         giveCards();
         string _selectCard;
         while(this->realPlayer.getInGameCards().size() > 0
@@ -127,8 +131,7 @@ void RoomGame::startGame()
             {
                 list<Card> _tCards = _list::card::removeByLabel(this->realPlayer.getInGameCards(), _selectCard);
                 this->realPlayer.setInGameCards(_tCards);
-                this->gameTableCards.push_back(_cardSetected);
-
+                throwCardOnTable(_cardSetected);
 
                 srand(time(NULL));
                 int _randNumber = rand() % this->systemPlayer.getInGameCards().size();
@@ -136,7 +139,7 @@ void RoomGame::startGame()
                 Card _systemCard = _list::card::findByIndex(this->systemPlayer.getInGameCards(), _randNumber);
                 list<Card> _sCards = _list::card::removeByLabel(this->systemPlayer.getInGameCards(), _systemCard.getLabel());
                 this->systemPlayer.setInGameCards(_sCards);
-                this->gameTableCards.push_back(_systemCard);
+                throwCardOnTable(_systemCard);
 
                 renderRoom();
             }
@@ -197,4 +200,35 @@ void RoomGame::drawGameTable()
         }
     }
 
+}
+
+void RoomGame::throwCardOnTable(Card _cardThrow)
+{
+    Card _existCard = _list::card::findByValue(this->gameTableCards, _cardThrow.getValue());
+    if(_existCard.getValue() != -1)
+    {
+        list<Card> _rCards = _list::card::removeByLabel(this->gameTableCards, _existCard.getLabel());
+        this->gameTableCards = _rCards;
+        for(int i = _cardThrow.getValue()+1; i <= 13; i++)
+        {
+            if(i == 8 || i == 9 || i == 10)
+            {
+                continue;
+            }
+            Card _existCardFor = _list::card::findByValue(this->gameTableCards, i);
+            if(_existCardFor.getValue() != -1)
+            {
+                list<Card> _rCardsFor = _list::card::removeByLabel(this->gameTableCards, _existCardFor.getLabel());
+                this->gameTableCards = _rCardsFor;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    else
+    {
+        this->gameTableCards.push_back(_cardThrow);
+    }
 }

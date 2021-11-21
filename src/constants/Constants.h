@@ -3,7 +3,7 @@
 
 namespace ScreenLines
 {
-    const int COLUMNS = 200;
+    const int COLUMNS = 170;
     const int ROWS = 50;
 };
 

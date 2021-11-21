@@ -26,7 +26,8 @@ public:
     void drawGameTable();
     void startGame();
     void giveCards();
-    void throwCardOnTable(Card _card);
+    void throwCardOnTablePlayer(Card _cardThrow, string _takeCard);
+    void throwCardOnTableSystem(Card _cardThrow);
 };
 
 #endif // CLASS_ROOMGAME_H

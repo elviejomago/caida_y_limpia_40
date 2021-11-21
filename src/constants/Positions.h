@@ -19,9 +19,33 @@ namespace P_REAL_PLAYER_AREA
     const int y = 10;
 }
 
+namespace P_REAL_PLAYER_WIN_CARDS
+{
+    const int x = 25;
+    const int y = 14;
+}
+
+namespace P_REAL_PLAYER_SCORE
+{
+    const int x = 24;
+    const int y = 10;
+}
+
 namespace P_SYSTEM_PLAYER_AREA
 {
     const int x = 100;
+    const int y = 10;
+}
+
+namespace P_SYSTEM_PLAYER_WIN_CARDS
+{
+    const int x = 113;
+    const int y = 14;
+}
+
+namespace P_SYSTEM_PLAYER_SCORE
+{
+    const int x = 112;
     const int y = 10;
 }
 

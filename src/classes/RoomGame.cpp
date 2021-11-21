@@ -68,6 +68,7 @@ void RoomGame::drawRealPlayerArea()
     text::printTextColorPos("|      |", _x, ++_y, Colors::GREEN);
     text::printTextColorPos("|      |", _x, ++_y, Colors::GREEN);
     text::printTextColorPos("--------", _x, ++_y, Colors::GREEN);
+    text::printTextColorPos("   -> ", _x, ++_y, Colors::GREEN);
 
     int _posCardX = P_REAL_PLAYER_AREA::x + 3;
     int _posCardY = P_REAL_PLAYER_AREA::y + 1;
@@ -75,6 +76,25 @@ void RoomGame::drawRealPlayerArea()
     {
         text::printTextColorPos(card.getLabel(), _posCardX, ++_posCardY, Colors::RED);
     }
+
+    _x = P_REAL_PLAYER_WIN_CARDS::x;
+    _y = P_REAL_PLAYER_WIN_CARDS::y;
+    text::printTextColorPos("------", _x, ++_y, Colors::GREEN);
+    text::printTextColorPos("|    |", _x, ++_y, Colors::GREEN);
+    text::printTextColorPos("------", _x, ++_y, Colors::GREEN);
+    _x = P_REAL_PLAYER_WIN_CARDS::x + 2;
+    _y = P_REAL_PLAYER_WIN_CARDS::y + 2;
+    text::printTextColorPos(std::to_string(this->realPlayer.getWinCards().size()), _x, _y, Colors::RED);
+
+    _x = P_REAL_PLAYER_SCORE::x;
+    _y = P_REAL_PLAYER_SCORE::y;
+    text::printTextColorPos("--------", _x, ++_y, Colors::GREEN);
+    text::printTextColorPos("|      |", _x, ++_y, Colors::GREEN);
+    text::printTextColorPos("|      |", _x, ++_y, Colors::GREEN);
+    text::printTextColorPos("--------", _x, ++_y, Colors::GREEN);
+    _x = P_REAL_PLAYER_SCORE::x + 2;
+    _y = P_REAL_PLAYER_SCORE::y + 2;
+
 }
 
 void RoomGame::drawSystemPlayerArea()
@@ -96,6 +116,25 @@ void RoomGame::drawSystemPlayerArea()
     {
         text::printTextColorPos(card.getLabel(), _posCardX, ++_posCardY, Colors::RED);
     }
+
+    _x = P_SYSTEM_PLAYER_WIN_CARDS::x;
+    _y = P_SYSTEM_PLAYER_WIN_CARDS::y;
+    text::printTextColorPos("------", _x, ++_y, Colors::WHITE);
+    text::printTextColorPos("|    |", _x, ++_y, Colors::WHITE);
+    text::printTextColorPos("------", _x, ++_y, Colors::WHITE);
+    _x = P_SYSTEM_PLAYER_WIN_CARDS::x + 2;
+    _y = P_SYSTEM_PLAYER_WIN_CARDS::y + 2;
+    text::printTextColorPos(std::to_string(this->systemPlayer.getWinCards().size()), _x, _y, Colors::RED);
+
+    _x = P_SYSTEM_PLAYER_SCORE::x;
+    _y = P_SYSTEM_PLAYER_SCORE::y;
+    text::printTextColorPos("--------", _x, ++_y, Colors::WHITE);
+    text::printTextColorPos("|      |", _x, ++_y, Colors::WHITE);
+    text::printTextColorPos("|      |", _x, ++_y, Colors::WHITE);
+    text::printTextColorPos("--------", _x, ++_y, Colors::WHITE);
+    _x = P_SYSTEM_PLAYER_SCORE::x + 2;
+    _y = P_SYSTEM_PLAYER_SCORE::y + 2;
+
 }
 
 void RoomGame::startGame()
@@ -120,18 +159,24 @@ void RoomGame::startGame()
         }
         giveCards();
         string _selectCard;
+        string _takeCard;
         while(this->realPlayer.getInGameCards().size() > 0
                 && this->systemPlayer.getInGameCards().size() > 0)
         {
             pos::gotoxy(P_REAL_PLAYER_AREA::x, P_REAL_PLAYER_AREA::y + 8);
             cin >> _selectCard;
 
+            pos::gotoxy(P_REAL_PLAYER_AREA::x + 6, P_REAL_PLAYER_AREA::y + 8);
+            cin >> _takeCard;
+            pos::gotoxy(P_REAL_PLAYER_AREA::x + 6, P_REAL_PLAYER_AREA::y + 8);
+            cout << "     ";
+
             Card _cardSetected = _list::card::findByLabel(this->realPlayer.getInGameCards(), _selectCard);
             if(_cardSetected.getValue() != -1)
             {
                 list<Card> _tCards = _list::card::removeByLabel(this->realPlayer.getInGameCards(), _selectCard);
                 this->realPlayer.setInGameCards(_tCards);
-                throwCardOnTable(_cardSetected);
+                throwCardOnTablePlayer(_cardSetected, _takeCard);
 
                 srand(time(NULL));
                 int _randNumber = rand() % this->systemPlayer.getInGameCards().size();
@@ -139,7 +184,7 @@ void RoomGame::startGame()
                 Card _systemCard = _list::card::findByIndex(this->systemPlayer.getInGameCards(), _randNumber);
                 list<Card> _sCards = _list::card::removeByLabel(this->systemPlayer.getInGameCards(), _systemCard.getLabel());
                 this->systemPlayer.setInGameCards(_sCards);
-                throwCardOnTable(_systemCard);
+                throwCardOnTableSystem(_systemCard);
 
                 renderRoom();
             }
@@ -169,7 +214,7 @@ void RoomGame::drawGameTable()
 {
     int _x = P_GAME_TABLE::x;
     int _y = P_GAME_TABLE::y;
-    text::printTextColorPos("System", _x, _y, Colors::WHITE);
+    text::printTextColorPos("Mesa de Juego", _x, _y, Colors::WHITE);
     text::printTextColorPos("------------------------------------------", _x, ++_y, Colors::WHITE);
     text::printTextColorPos("|                                        |", _x, ++_y, Colors::WHITE);
     text::printTextColorPos("|                                        |", _x, ++_y, Colors::WHITE);
@@ -199,16 +244,95 @@ void RoomGame::drawGameTable()
             text::printTextColorPos(card.getLabel(), _posCardX, _posCardY, Colors::RED);
         }
     }
-
 }
 
-void RoomGame::throwCardOnTable(Card _cardThrow)
+void RoomGame::throwCardOnTablePlayer(Card _cardThrow, string _takeCard)
+{
+    string _takeCard2, _takeCard3;
+    if(_takeCard.length() == 4)
+    {
+        _takeCard2 = _takeCard.substr(0, 2);
+        _takeCard3 = _takeCard.substr(2, 3);
+        Card _existCard2 = _list::card::findByLabel(this->gameTableCards, _takeCard2);
+        Card _existCard3 = _list::card::findByLabel(this->gameTableCards, _takeCard3);
+        if(_existCard2.getValue() != -1 && _existCard3.getValue() != -1
+           && _cardThrow.getValue() == (_existCard2.getValue() + _existCard3.getValue()))
+        {
+            this->realPlayer.addWinCard(_cardThrow);
+            list<Card> _rCards2 = _list::card::removeByLabel(this->gameTableCards, _existCard2.getLabel());
+            list<Card> _rCards3 = _list::card::removeByLabel(_rCards2, _existCard3.getLabel());
+            this->gameTableCards = _rCards3;
+            this->realPlayer.addWinCard(_existCard2);
+            this->realPlayer.addWinCard(_existCard3);
+            for(int i = _existCard2.getValue() + _existCard3.getValue() + 1; i <= 13; i++)
+            {
+                if(i == 8 || i == 9 || i == 10)
+                {
+                    continue;
+                }
+                Card _existCardFor = _list::card::findByValue(this->gameTableCards, i);
+                if(_existCardFor.getValue() != -1)
+                {
+                    list<Card> _rCardsFor = _list::card::removeByLabel(this->gameTableCards, _existCardFor.getLabel());
+                    this->gameTableCards = _rCardsFor;
+                    this->realPlayer.addWinCard(_existCardFor);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+        else
+        {
+            this->gameTableCards.push_back(_cardThrow);
+        }
+    }
+    else
+    {
+        Card _existCard = _list::card::findByLabel(this->gameTableCards, _takeCard);
+        if(_existCard.getValue() != -1 && _existCard.getValue() == _cardThrow.getValue())
+        {
+            this->realPlayer.addWinCard(_cardThrow);
+            list<Card> _rCards = _list::card::removeByLabel(this->gameTableCards, _existCard.getLabel());
+            this->gameTableCards = _rCards;
+            this->realPlayer.addWinCard(_existCard);
+            for(int i = _cardThrow.getValue()+1; i <= 13; i++)
+            {
+                if(i == 8 || i == 9 || i == 10)
+                {
+                    continue;
+                }
+                Card _existCardFor = _list::card::findByValue(this->gameTableCards, i);
+                if(_existCardFor.getValue() != -1)
+                {
+                    list<Card> _rCardsFor = _list::card::removeByLabel(this->gameTableCards, _existCardFor.getLabel());
+                    this->gameTableCards = _rCardsFor;
+                    this->realPlayer.addWinCard(_existCardFor);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+        else
+        {
+            this->gameTableCards.push_back(_cardThrow);
+        }
+
+    }
+}
+
+void RoomGame::throwCardOnTableSystem(Card _cardThrow)
 {
     Card _existCard = _list::card::findByValue(this->gameTableCards, _cardThrow.getValue());
     if(_existCard.getValue() != -1)
     {
+        this->systemPlayer.addWinCard(_cardThrow);
         list<Card> _rCards = _list::card::removeByLabel(this->gameTableCards, _existCard.getLabel());
         this->gameTableCards = _rCards;
+        this->systemPlayer.addWinCard(_existCard);
         for(int i = _cardThrow.getValue()+1; i <= 13; i++)
         {
             if(i == 8 || i == 9 || i == 10)
@@ -220,6 +344,7 @@ void RoomGame::throwCardOnTable(Card _cardThrow)
             {
                 list<Card> _rCardsFor = _list::card::removeByLabel(this->gameTableCards, _existCardFor.getLabel());
                 this->gameTableCards = _rCardsFor;
+                this->systemPlayer.addWinCard(_existCardFor);
             }
             else
             {

@@ -56,3 +56,13 @@ list<Card> Player::getInGameCards()
 {
     return this->inGameCards;
 }
+
+void Player::addWinCard(Card _card)
+{
+    this->winCards.push_back(_card);
+}
+
+list<Card> Player::getWinCards()
+{
+    return this->winCards;
+}

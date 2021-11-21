@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1637294733 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\caidaylimpia40.cpp
+1637462387 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\caidaylimpia40.cpp
 	<windows.h>
 	"classes/Screen.h"
 	"classes/Welcome.h"
@@ -92,13 +92,13 @@
 
 1636685098 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\constants.h
 
-1636786965 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\display.h
+1637464469 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\display.h
 	<iostream>
 
-1636864987 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\player.cpp
+1637463567 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\player.cpp
 	"Player.h"
 
-1636864993 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\player.h
+1637462984 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\player.h
 	<iostream>
 	<list>
 	"Card.h"
@@ -122,7 +122,7 @@
 	"Screen.h"
 	"Player.h"
 
-1636788524 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\display.cpp
+1637464463 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\display.cpp
 	<stdio.h>
 	<iostream>
 	<windows.h>
@@ -130,7 +130,7 @@
 	"Display.h"
 	"../constants/Constants.h"
 
-1637388285 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.cpp
+1637466754 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.cpp
 	<iostream>
 	<list>
 	<cstring>
@@ -144,7 +144,7 @@
 	"../constants/Constants.h"
 	"../functions/List.h"
 
-1637387072 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.h
+1637454975 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.h
 	<Screen.h>
 	<list>
 	"Deck.h"
@@ -176,11 +176,11 @@
 	<list>
 	"Card.h"
 
-1636788349 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\constants.h
+1637462348 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\constants.h
 
 1636865363 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\typecard.h
 
-1637295417 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\positions.h
+1637466898 d:\desarrollo\workspaces\caida_y_limpia_40\src\constants\positions.h
 
 1637387851 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\list.cpp
 	<iostream>

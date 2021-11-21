@@ -25,6 +25,7 @@ public:
 	void addLostGames();
 	int getLostGames();
 	void addWinCard(Card _card);
+	list<Card> getWinCards();
 	void setInGameCards(list<Card> _cards);
 	list<Card> getInGameCards();
 };

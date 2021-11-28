@@ -10,6 +10,7 @@
 #include "../constants/Positions.h"
 #include "../constants/Constants.h"
 #include "../functions/List.h"
+#include "../functions/Scoring.h"
 
 using namespace std;
 
@@ -30,6 +31,11 @@ void RoomGame::init(Player _player)
     this->deck = _deck;
     this->realPlayer = _player;
     this->systemPlayer = _systemPlayer;
+}
+
+void RoomGame::resetGameTableCards()
+{
+    this->gameTableCards.clear();
 }
 
 void RoomGame::drawDeckOnRoom()
@@ -92,9 +98,20 @@ void RoomGame::drawRealPlayerArea()
     text::printTextColorPos("|      |", _x, ++_y, Colors::GREEN);
     text::printTextColorPos("|      |", _x, ++_y, Colors::GREEN);
     text::printTextColorPos("--------", _x, ++_y, Colors::GREEN);
-    _x = P_REAL_PLAYER_SCORE::x + 2;
-    _y = P_REAL_PLAYER_SCORE::y + 2;
 
+    _x = P_REAL_PLAYER_SCORE::x + 1;
+    _y = P_REAL_PLAYER_SCORE::y + 2;
+    text::printTextColorPos(this->realPlayer.score[0][0], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->realPlayer.score[0][1], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->realPlayer.score[0][2], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->realPlayer.score[0][3], ++_x, _y, Colors::RED);
+
+    _x = P_REAL_PLAYER_SCORE::x + 1;
+    _y = P_REAL_PLAYER_SCORE::y + 3;
+    text::printTextColorPos(this->realPlayer.score[1][0], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->realPlayer.score[1][1], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->realPlayer.score[1][2], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->realPlayer.score[1][3], ++_x, _y, Colors::RED);
 }
 
 void RoomGame::drawSystemPlayerArea()
@@ -132,9 +149,20 @@ void RoomGame::drawSystemPlayerArea()
     text::printTextColorPos("|      |", _x, ++_y, Colors::WHITE);
     text::printTextColorPos("|      |", _x, ++_y, Colors::WHITE);
     text::printTextColorPos("--------", _x, ++_y, Colors::WHITE);
-    _x = P_SYSTEM_PLAYER_SCORE::x + 2;
-    _y = P_SYSTEM_PLAYER_SCORE::y + 2;
 
+    _x = P_SYSTEM_PLAYER_SCORE::x + 1;
+    _y = P_SYSTEM_PLAYER_SCORE::y + 2;
+    text::printTextColorPos(this->systemPlayer.score[0][0], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->systemPlayer.score[0][1], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->systemPlayer.score[0][2], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->systemPlayer.score[0][3], ++_x, _y, Colors::RED);
+
+    _x = P_SYSTEM_PLAYER_SCORE::x + 1;
+    _y = P_SYSTEM_PLAYER_SCORE::y + 3;
+    text::printTextColorPos(this->systemPlayer.score[1][0], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->systemPlayer.score[1][1], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->systemPlayer.score[1][2], ++_x, _y, Colors::RED);
+    text::printTextColorPos(this->systemPlayer.score[1][3], ++_x, _y, Colors::RED);
 }
 
 void RoomGame::startGame()
@@ -153,11 +181,21 @@ void RoomGame::startGame()
     {
         if(this->deck.getRounds() == 0 || this->deck.getRounds() == 4)
         {
+            int _score = _scoring::deck(this->realPlayer.getWinCards());
+            this->realPlayer.addScore(_score);
+            this->realPlayer.resetWinCards();
+            _score = _scoring::deck(this->systemPlayer.getWinCards());
+            this->systemPlayer.addScore(_score);
+            this->systemPlayer.resetWinCards();
+            resetGameTableCards();
+
             this->deck.resetRounds();
             this->deck.resetDeck();
             this->deck.shufflingCards();
         }
         giveCards();
+        Card emptyCard;
+        this->lastCard = emptyCard;
         string _selectCard;
         string _takeCard;
         while(this->realPlayer.getInGameCards().size() > 0
@@ -177,6 +215,7 @@ void RoomGame::startGame()
                 list<Card> _tCards = _list::card::removeByLabel(this->realPlayer.getInGameCards(), _selectCard);
                 this->realPlayer.setInGameCards(_tCards);
                 throwCardOnTablePlayer(_cardSetected, _takeCard);
+                this->lastCard = _cardSetected;
 
                 srand(time(NULL));
                 int _randNumber = rand() % this->systemPlayer.getInGameCards().size();
@@ -185,6 +224,7 @@ void RoomGame::startGame()
                 list<Card> _sCards = _list::card::removeByLabel(this->systemPlayer.getInGameCards(), _systemCard.getLabel());
                 this->systemPlayer.setInGameCards(_sCards);
                 throwCardOnTableSystem(_systemCard);
+                this->lastCard = _systemCard;
 
                 renderRoom();
             }
@@ -196,8 +236,14 @@ void RoomGame::giveCards()
 {
     list<Card> realPlayerCards = this->deck.dealCards(this->deck.getRounds(), true);
     this->realPlayer.setInGameCards(realPlayerCards);
+    int _score = _scoring::roundOrDoubleRound(realPlayerCards);
+    this->realPlayer.addScore(_score);
+
     list<Card> systemPlayerCards = this->deck.dealCards(this->deck.getRounds(), false);
     this->systemPlayer.setInGameCards(systemPlayerCards);
+    _score = _scoring::roundOrDoubleRound(systemPlayerCards);
+    this->systemPlayer.addScore(_score);
+
     renderRoom();
     this->deck.addRounds();
 }
@@ -255,7 +301,7 @@ void RoomGame::throwCardOnTablePlayer(Card _cardThrow, string _takeCard)
         _takeCard3 = _takeCard.substr(2, 3);
         Card _existCard2 = _list::card::findByLabel(this->gameTableCards, _takeCard2);
         Card _existCard3 = _list::card::findByLabel(this->gameTableCards, _takeCard3);
-        if(_existCard2.getValue() != -1 && _existCard3.getValue() != -1
+        if(_existCard2.getValue() != -1 && _existCard3.getValue() != -1 && _cardThrow.getValue() <= 7
            && _cardThrow.getValue() == (_existCard2.getValue() + _existCard3.getValue()))
         {
             this->realPlayer.addWinCard(_cardThrow);
@@ -282,6 +328,8 @@ void RoomGame::throwCardOnTablePlayer(Card _cardThrow, string _takeCard)
                     break;
                 }
             }
+            int _score = _scoring::table(this->gameTableCards, this->lastCard, _cardThrow);
+            this->realPlayer.addScore(_score);
         }
         else
         {
@@ -315,6 +363,8 @@ void RoomGame::throwCardOnTablePlayer(Card _cardThrow, string _takeCard)
                     break;
                 }
             }
+            int _score = _scoring::table(this->gameTableCards, this->lastCard, _cardThrow);
+            this->realPlayer.addScore(_score);
         }
         else
         {
@@ -351,6 +401,8 @@ void RoomGame::throwCardOnTableSystem(Card _cardThrow)
                 break;
             }
         }
+        int _score = _scoring::table(this->gameTableCards, this->lastCard, _cardThrow);
+        this->systemPlayer.addScore(_score);
     }
     else
     {

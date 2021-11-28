@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1637462387 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\caidaylimpia40.cpp
+1638114080 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\caidaylimpia40.cpp
 	<windows.h>
 	"classes/Screen.h"
-	"classes/Welcome.h"
+	"StartScreen.h"
 	"functions/Display.h"
 	"constants/Constants.h"
 
@@ -95,12 +95,13 @@
 1637464469 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\display.h
 	<iostream>
 
-1637463567 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\player.cpp
+1638115779 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\player.cpp
 	"Player.h"
 
-1637462984 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\player.h
+1638117273 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\player.h
 	<iostream>
 	<list>
+	<array>
 	"Card.h"
 
 1636688341 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\screen.cpp
@@ -130,7 +131,7 @@
 	"Display.h"
 	"../constants/Constants.h"
 
-1637466754 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.cpp
+1638116422 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.cpp
 	<iostream>
 	<list>
 	<cstring>
@@ -143,8 +144,9 @@
 	"../constants/Positions.h"
 	"../constants/Constants.h"
 	"../functions/List.h"
+	"../functions/Scoring.h"
 
-1637454975 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.h
+1638117333 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\roomgame.h
 	<Screen.h>
 	<list>
 	"Deck.h"
@@ -190,6 +192,34 @@
 	"Card.h"
 
 1637387713 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\list.h
+	<iostream>
+	<list>
+	"Card.h"
+
+1637534899 d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\startscreen.h
+	<Screen.h>
+
+1638070406 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\letters.cpp
+	<iostream>
+	"Letters.h"
+	"Display.h"
+
+1638064771 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\letters.h
+
+1638083457 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\classes\startscreen.cpp
+	<thread>
+	<chrono>
+	<atomic>
+	"StartScreen.h"
+	"Welcome.h"
+	"../functions/Letters.h"
+
+1638076720 source:d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\scoring.cpp
+	<algorithm>
+	<list>
+	"Scoring.h"
+
+1638075668 d:\desarrollo\workspaces\caida_y_limpia_40\src\functions\scoring.h
 	<iostream>
 	<list>
 	"Card.h"

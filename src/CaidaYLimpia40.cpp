@@ -1,6 +1,6 @@
 #include <windows.h>
 #include "classes/Screen.h"
-#include "classes/Welcome.h"
+#include "StartScreen.h"
 #include "functions/Display.h"
 #include "constants/Constants.h"
 
@@ -11,7 +11,7 @@ void initConfig();
 int main()
 {
     initConfig();
-    Welcome sWelcome;
+    StartScreen startScreen;
 
     system("pause > 0");
 }

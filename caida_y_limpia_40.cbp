@@ -46,6 +46,8 @@
 		<Unit filename="src/classes/RoomGame.h" />
 		<Unit filename="src/classes/Screen.cpp" />
 		<Unit filename="src/classes/Screen.h" />
+		<Unit filename="src/classes/StartScreen.cpp" />
+		<Unit filename="src/classes/StartScreen.h" />
 		<Unit filename="src/classes/Welcome.cpp" />
 		<Unit filename="src/classes/Welcome.h" />
 		<Unit filename="src/constants/Constants.h" />
@@ -53,8 +55,12 @@
 		<Unit filename="src/constants/TypeCard.h" />
 		<Unit filename="src/functions/Display.cpp" />
 		<Unit filename="src/functions/Display.h" />
+		<Unit filename="src/functions/Letters.cpp" />
+		<Unit filename="src/functions/Letters.h" />
 		<Unit filename="src/functions/List.cpp" />
 		<Unit filename="src/functions/List.h" />
+		<Unit filename="src/functions/Scoring.cpp" />
+		<Unit filename="src/functions/Scoring.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

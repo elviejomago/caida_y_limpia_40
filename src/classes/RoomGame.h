@@ -15,6 +15,7 @@ private:
     Player realPlayer;
     Player systemPlayer;
     list<Card> gameTableCards;
+    Card lastCard;
 public:
     RoomGame();
     RoomGame(Player _player);
@@ -28,6 +29,7 @@ public:
     void giveCards();
     void throwCardOnTablePlayer(Card _cardThrow, string _takeCard);
     void throwCardOnTableSystem(Card _cardThrow);
+    void resetGameTableCards();
 };
 
 #endif // CLASS_ROOMGAME_H

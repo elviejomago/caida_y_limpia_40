@@ -406,6 +406,51 @@ void RoomGame::throwCardOnTableSystem(Card _cardThrow)
     }
     else
     {
+        Card _cardsArray[this->gameTableCards.size()];
+        int p = 0;
+        for(Card _card : this->gameTableCards)
+        {
+            _cardsArray[p] = _card;
+            p++;
+        }
+        for(int j = 0; j < this->gameTableCards.size(); j++)
+        {
+            for(int k = j+1; k < this->gameTableCards.size(); k++)
+            {
+                if(_cardThrow.getValue() <= 7 && _cardThrow.getValue() == (_cardsArray[j].getValue() + _cardsArray[k].getValue()))
+                {
+                    this->systemPlayer.addWinCard(_cardThrow);
+                    list<Card> _rCards2 = _list::card::removeByLabel(this->gameTableCards, _cardsArray[j].getLabel());
+                    list<Card> _rCards3 = _list::card::removeByLabel(_rCards2, _cardsArray[k].getLabel());
+                    this->gameTableCards = _rCards3;
+                    this->systemPlayer.addWinCard(_cardsArray[j]);
+                    this->systemPlayer.addWinCard(_cardsArray[k]);
+                    for(int i = _cardsArray[j].getValue() + _cardsArray[k].getValue() + 1; i <= 13; i++)
+                    {
+                        if(i == 8 || i == 9 || i == 10)
+                        {
+                            continue;
+                        }
+                        Card _existCardFor = _list::card::findByValue(this->gameTableCards, i);
+                        if(_existCardFor.getValue() != -1)
+                        {
+                            list<Card> _rCardsFor = _list::card::removeByLabel(this->gameTableCards, _existCardFor.getLabel());
+                            this->gameTableCards = _rCardsFor;
+                            this->systemPlayer.addWinCard(_existCardFor);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    int _score = _scoring::table(this->gameTableCards, this->lastCard, _cardThrow);
+                    this->systemPlayer.addScore(_score);
+                }
+            }
+        }
+
+
+
         this->gameTableCards.push_back(_cardThrow);
     }
 }
